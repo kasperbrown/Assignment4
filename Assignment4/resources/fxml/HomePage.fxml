@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.fxml.HomePageController">
+   <children>
+      <SplitPane layoutX="1.0" layoutY="2.0" orientation="VERTICAL" prefHeight="567.0" prefWidth="756.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="171.0">
+               <children>
+                  <Label layoutX="284.0" layoutY="11.0" prefHeight="44.0" prefWidth="170.0" text="Shady Bank INC">
+                     <font>
+                        <Font name="System Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="34.0" layoutY="97.0" prefHeight="332.0" prefWidth="234.0">
+                     <children>
+                        <Button fx:id="btnManagePeople" layoutX="28.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnManagePeopleClicked" prefHeight="44.0" prefWidth="153.0" text="Manage People" />
+                        <Button fx:id="btnManageAccount" layoutX="28.0" layoutY="80.0" mnemonicParsing="false" onAction="#btnManageAccountClicked" prefHeight="44.0" prefWidth="153.0" text="Manage Account" />
+                        <Button layoutX="28.0" layoutY="145.0" mnemonicParsing="false" onAction="#manageMoneyClicked" prefHeight="44.0" prefWidth="153.0" text="Manage Money" />
+                        <Button layoutX="28.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnMenuShowTotalClicked" prefHeight="44.0" prefWidth="153.0" text="Show Totals" />
+                        <Button layoutX="28.0" layoutY="270.0" mnemonicParsing="false" onAction="#menuPrintInformationClicked" prefHeight="44.0" prefWidth="153.0" text="Print Information" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="300.0" layoutY="51.0" prefHeight="477.0" prefWidth="340.0">
+                     <children>
+                        <Label disable="true" opacity="0.0" text="Action Display" />
+                        <AnchorPane fx:id="managePersonPane" layoutX="14.0" layoutY="14.0" opacity="0.0" prefHeight="490.0" prefWidth="395.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="105.0" layoutY="25.0" prefHeight="23.0" prefWidth="162.0" text="Manage People">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <GridPane layoutX="54.0" layoutY="70.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Person ID:" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" GridPane.rowIndex="2" />
+                                    <TextField fx:id="tfPersonId" promptText="Person ID" GridPane.columnIndex="1" />
+                                    <TextField fx:id="tfPersonName" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="tfPersonAge" promptText="Age" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="personIdError" prefWidth="10.0" text=" " textFill="#f80202" GridPane.columnIndex="2" />
+                                    <Label fx:id="personNameError" layoutX="190.0" text=" " textFill="#f80202" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label fx:id="personAgeError" text=" " textFill="#f80202" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                              <Button layoutX="24.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnAddPersonClicked" prefWidth="110.0" text="Add Person" />
+                              <Button layoutX="142.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnFindPersonClicked" prefWidth="110.0" text="Find Person " />
+                              <Button layoutX="260.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnRemovePersonClicked" prefWidth="110.0" text="Remove Person" />
+                              <Label fx:id="personSuccess" alignment="CENTER" layoutX="72.5" layoutY="217.0" prefHeight="17.0" prefWidth="250.0" text=" " textFill="#21b234" />
+                              <Label fx:id="personFail" alignment="CENTER" layoutX="72.5" layoutY="217.0" prefHeight="17.0" prefWidth="250.0" text=" " textFill="#f80202" />
+                              <TableView fx:id="tableViewPerson" layoutX="64.0" layoutY="264.0" prefHeight="194.0" prefWidth="272.0">
+                                <columns>
+                                  <TableColumn fx:id="columnPersonId" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="columnName" prefWidth="75.0" text="Name" />
+                                    <TableColumn fx:id="columnAge" prefWidth="75.0" text="Age" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="manageAccountPane" layoutY="5.0" opacity="0.0" prefHeight="490.0" prefWidth="395.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="105.0" layoutY="25.0" prefHeight="23.0" prefWidth="162.0" text="Manage Accounts">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="56.0" layoutY="92.0" text="Person ID: " />
+                              <TextField fx:id="tfPersonIdAccount" layoutX="133.0" layoutY="88.0" prefHeight="26.0" prefWidth="145.0" />
+                              <Label fx:id="personIdAccountError" layoutX="281.0" layoutY="92.0" text=" " textFill="#f80202" />
+                              <Label layoutX="20.0" layoutY="127.0" text="Account number:" />
+                              <TextField fx:id="tfAccountNumber" layoutX="133.0" layoutY="119.0" prefHeight="26.0" prefWidth="145.0" />
+                              <Label fx:id="personAccountNumberError" layoutX="281.0" layoutY="124.0" text=" " textFill="#f80202" />
+                              <Button layoutX="44.0" layoutY="161.0" mnemonicParsing="false" onAction="#btnAddAccountClicked" prefHeight="32.0" prefWidth="100.0" text="Add account" />
+                              <Button layoutX="151.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnFindAccountClicked" prefHeight="32.0" prefWidth="100.0" text="Find account" />
+                              <Button layoutX="261.0" layoutY="161.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="Remove" />
+                              <Label fx:id="accountFail" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="210.0" prefHeight="17.0" prefWidth="250.0" text=" " textAlignment="CENTER" textFill="#f80202" />
+                              <Label fx:id="accountSuccess" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="210.0" prefHeight="17.0" prefWidth="250.0" textFill="#21b234" />
+                              <TableView fx:id="tableViewAccount" layoutX="31.0" layoutY="324.0" prefHeight="153.0" prefWidth="318.0">
+                                <columns>
+                                  <TableColumn fx:id="columnAccountNumber" prefWidth="100.40924072265625" text="Account number" />
+                                    <TableColumn fx:id="columnBalance" prefWidth="119.5" text="Balance" />
+                                    <TableColumn fx:id="columnOwner" prefWidth="97.0" text="Owner" />
+                                </columns>
+                              </TableView>
+                              <Label fx:id="amountFail" alignment="CENTER" layoutX="98.0" layoutY="292.0" prefHeight="17.0" prefWidth="177.0" text=" " textFill="#f80202" />
+                              <Label fx:id="amountSuccess" alignment="CENTER" layoutX="98.0" layoutY="292.0" prefHeight="17.0" prefWidth="177.0" text=" " textFill="#21b234" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="anchorPaneInformation" opacity="0.0" prefHeight="477.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="105.0" layoutY="25.0" prefHeight="23.0" prefWidth="162.0" text="Print Information">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="85.0" layoutY="392.0" mnemonicParsing="false" onAction="#btnPrintAllInformationClicked" prefHeight="62.0" prefWidth="201.0" text="Print" />
+                              <TableView fx:id="tableViewPrintInformation" layoutY="164.0" prefHeight="200.0" prefWidth="198.0">
+                                <columns>
+                                  <TableColumn fx:id="columnPersonIdPrint" prefWidth="75.0" text="Person ID" />
+                                  <TableColumn fx:id="columnPersonNamePrint" prefWidth="75.0" text="Name" />
+                                    <TableColumn fx:id="columnPersonAgePrint" prefWidth="46.0" text="Age" />
+                                </columns>
+                              </TableView>
+                              <RadioButton layoutX="22.0" layoutY="84.0" mnemonicParsing="false" text="Print all information" />
+                              <RadioButton layoutX="22.0" layoutY="113.0" mnemonicParsing="false" text="Print specific person" />
+                              <TextField layoutX="179.0" layoutY="109.0" promptText="Person ID" />
+                              <TableView fx:id="tableViewPrintAccountInfo" layoutX="200.0" layoutY="164.0" prefHeight="200.0" prefWidth="180.0">
+                                <columns>
+                                    <TableColumn fx:id="columnPersonAccountIdPrint" prefWidth="87.0" text="Account ID" />
+                                    <TableColumn fx:id="columnPersonAccountBalancePrint" prefWidth="92.0" text="Balance" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="anchorPaneMoney" opacity="0.0" prefHeight="477.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="105.0" layoutY="25.0" prefHeight="23.0" prefWidth="162.0" text="Manage Money">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="41.0" layoutY="77.0" text="Account Number:" />
+                              <TextField fx:id="tfAccountNumberMoney" layoutX="163.0" layoutY="72.0" prefHeight="26.0" prefWidth="145.0" promptText="Enter Account Number" />
+                              <Label fx:id="accountNumberMoneyError" layoutX="314.0" layoutY="77.0" text=" " textFill="#f80202" />
+                              <Label layoutX="89.0" layoutY="111.0" text="Amount:" />
+                              <TextField fx:id="tfAmount" layoutX="163.0" layoutY="106.0" prefHeight="26.0" prefWidth="145.0" promptText="Enter Amount" />
+                              <Label fx:id="amountError" layoutX="314.0" layoutY="110.0" text=" " textFill="#f80202" />
+                              <Button layoutX="69.0" layoutY="156.0" mnemonicParsing="false" onAction="#btnWithdrawClicked" prefHeight="32.0" prefWidth="98.0" text="Withdraw" />
+                              <Button layoutX="188.0" layoutY="156.0" mnemonicParsing="false" onAction="#btnDepositClicked" prefHeight="32.0" prefWidth="98.0" text="Deposit" />
+                              <Label fx:id="moneyFail" alignment="CENTER" layoutX="104.0" layoutY="200.0" prefHeight="17.0" prefWidth="169.0" text=" " textFill="#f80202" />
+                              <Label fx:id="moneySuccess" alignment="CENTER" layoutX="104.0" layoutY="200.0" prefHeight="17.0" prefWidth="169.0" text=" " textFill="#21b234" />
+                              <TableView layoutX="57.0" layoutY="236.0" prefHeight="226.0" prefWidth="259.0">
+                                <columns>
+                                  <TableColumn prefWidth="132.26193237304688" text="Account Number" />
+                                  <TableColumn prefWidth="126.23806762695312" text="Balance" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="anchorPaneShowTotal" prefHeight="477.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="105.0" layoutY="25.0" prefHeight="23.0" prefWidth="162.0" text="Show Totals">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="154.0" layoutY="64.0" text="Select option" />
+                              <RadioButton fx:id="rbtnPersonAccounts" layoutX="149.0" layoutY="86.0" mnemonicParsing="false" onAction="#rbtnPersonAccountsClicked" text="Person's Total" />
+                              <RadioButton fx:id="rbtnAllAccounts" layoutX="149.0" layoutY="107.0" mnemonicParsing="false" onAction="#rbtnAllAccountsClicked" text="All Accounts" />
+                              <Label layoutX="56.0" layoutY="154.0" text="Enter person'ID:" />
+                              <TextField fx:id="tfPersonIdTotals" layoutX="160.0" layoutY="151.0" promptText="Enter person ID" />
+                              <Button fx:id="btnShowTotalBalance" layoutX="139.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnShowTotalClicked" text="Show Totals" />
+                              <Label fx:id="totalsFail" alignment="CENTER" layoutX="61.0" layoutY="221.0" prefHeight="17.0" prefWidth="250.0" textFill="#f80202" />
+                              <Label fx:id="totalsSuccess" alignment="CENTER" layoutX="61.0" layoutY="221.0" prefHeight="17.0" prefWidth="250.0" textFill="#21b234" />
+                              <TableView fx:id="tableViewTotals" layoutX="69.0" layoutY="262.0" prefHeight="200.0" prefWidth="234.0">
+                                <columns>
+                                  <TableColumn fx:id="columnAccountNumberTotals" prefWidth="118.0" text="Account Number" />
+                                  <TableColumn fx:id="columnBalanceTotals" prefWidth="115.0" text="Balance" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.fxml.HomePageController">
+   <children>
+      <Button layoutX="515.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchHomePage" text="Return" />
+      <Label layoutX="228.0" layoutY="34.0" text="Manage People">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="67.0" layoutY="103.0" prefHeight="130.0" prefWidth="217.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="69.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="148.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField GridPane.columnIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Person ID:" />
+            <Label text="Name:" GridPane.rowIndex="1" />
+            <Label text="Age:" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="65.0" layoutY="258.0" prefHeight="90.0" prefWidth="261.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Add" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Find" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Remove" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <TableView fx:id="tableViewPerson" layoutX="342.0" layoutY="81.0" prefHeight="200.0" prefWidth="228.0">
+        <columns>
+          <TableColumn fx:id="columnPersonId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="columnName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="columnAge" prefWidth="75.0" text="Age" />
+        </columns>
+      </TableView>
+      <Label layoutX="34.0" layoutY="340.0" text="Please fill in all the information" textFill="RED" />
+   </children>
+</AnchorPane>
